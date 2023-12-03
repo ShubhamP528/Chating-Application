@@ -1,0 +1,28 @@
+<%- include("../partials/header") %>
+<%- include("../partials/navbar") %>
+
+
+<h1>All Users</h1>
+<div style="width: 60vw; margin: 60px auto;">
+    <ol class="list-group list-group-numbered">
+        <%for(let u of obj){%>
+        <li class="list-group-item fs-5"><%=u.username%> <form class="navbar-text" action="/chatwith/<%=u.username%>" method="post"><button style="border: none;" class="float-end me-4" href="">Chat</button></form></li>
+        <%}%>
+    </ol>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<%- include("../partials/footer") %>
