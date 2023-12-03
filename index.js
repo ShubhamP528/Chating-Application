@@ -18,7 +18,11 @@ const authRouter=require('./routes/auth');
 const chatRouter=require('./routes/chat');
 
 
-mongoose.connect('mongodb://127.0.0.1:27017/chatapp')
+if(process.env.NODE_ENV!=='production'){
+    require('dotenv').config();
+  }
+
+mongoose.connect(process.env.DB_URL)
     .then(()=>{
         console.log("DB connected");
     })
