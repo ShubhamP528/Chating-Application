@@ -1,6 +1,7 @@
 const socket=io();
 const chat=document.querySelector('textarea');
 const list=document.querySelector('#list');
+const U=document.querySelector('#user');
 const btnChat=document.querySelector('.btnChat');
 const to=document.querySelector('#to');
 
