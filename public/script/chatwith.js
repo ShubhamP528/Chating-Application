@@ -18,8 +18,16 @@ btnChat.addEventListener('click',()=>{
 
 
 socket.on('reciv',(data)=>{
-    console.log(data);
-    const li=document.createElement('li');
-    li.append(`${data.username} says :- ${data.messg}`);
-    list.append(li);
+    // console.log(data);
+    // const li=document.createElement('li');
+    // li.append(`${data.username} says :- ${data.messg}`);
+    // list.append(li);
+    const mes=document.createElement('div');
+    mes.append(`${data.username} says :- ${data.messg}`);
+    const user=U.innerText
+    if(data.username===user){
+        mes.setAttribute("class","right")
+        console.log(user)
+    }
+    list.append(mes);
 })
