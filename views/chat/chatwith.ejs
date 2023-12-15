@@ -14,6 +14,10 @@
     <div style="width: 60vw; margin: 100px auto">
      
         <div class="chat">
+
+            <div hidden id="user"><%=currUser.username%></div>
+            <div id="list" style="display: flex; flex-direction: column;"></div>
+
             <div class=" mb-3">
                 <h4 class="display-5">Chat here</h4>
                 <label for="mesage" class="form-label">Message</label>
@@ -24,8 +28,7 @@
             <br>
             <button class="btn btn-success btnChat">Send</button>
 
-            <div hidden id="user"><%=currUser.username%></div>
-            <div id="list" style="display: flex; flex-direction: column;"></div>
+        
         </div>
         
     </div>

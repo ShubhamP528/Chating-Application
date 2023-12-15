@@ -6,9 +6,9 @@ li{
 }
 
 .right{
-    align-self: flex-end;
+    align-self: flex-start;
 }
 
 .left{
-    align-self: flex-start;
+    align-self: flex-end;
 }
