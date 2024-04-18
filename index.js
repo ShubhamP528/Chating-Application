@@ -6,6 +6,7 @@ const passport = require("passport");
 const session = require("express-session");
 const path = require("path");
 const http = require("http");
+const MongoDBStore = require("connect-mongodb-session")(session);
 const flash = require("connect-flash");
 const socketio = require("socket.io");
 const server = http.createServer(app);
@@ -38,11 +39,17 @@ app.set("views", path.join(__dirname, "views"));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static("public"));
 
+const store = new MongoDBStore({
+  uri: process.env.DB_URL,
+  collection: "sessions",
+});
+
 app.use(
   session({
-    secret: "thisismysecret",
+    secret: "your-secret-key",
     resave: false,
-    saveUninitialized: true,
+    saveUninitialized: false,
+    store: store,
   })
 );
 
