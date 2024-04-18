@@ -1,14 +1,14 @@
-ul{
-    list-style: none;
+ul {
+  list-style: none;
 }
-li{
-    list-style: none;
-}
-
-.right{
-    align-self: flex-start;
+li {
+  list-style: none;
 }
 
-.left{
-    align-self: flex-end;
+.right {
+  align-self: flex-start;
+}
+
+.left {
+  align-self: flex-end;
 }
