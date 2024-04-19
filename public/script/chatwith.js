@@ -14,8 +14,12 @@ socket.on("loggedIn", () => {
 });
 
 btnChat.addEventListener("click", () => {
+  const messageText = chat.value.trim();
+  if (messageText === "") {
+    return;
+  }
   socket.emit("messg", {
-    messg: chat.value,
+    messg: messageText,
     to: to.value,
     username: $("#username").val(),
   });
@@ -29,11 +33,14 @@ socket.on("reciv", (data) => {
   // li.append(`${data.username} says :- ${data.messg}`);
   // list.append(li);
   const mes = document.createElement("div");
-  mes.append(`${data.username} says :- ${data.messg}`);
+  const sp = document.createElement("span");
+  mes.append(sp);
+  sp.append(`${data.messg}`);
+  sp.setAttribute("class", "sp");
   const user = U.innerText;
   if (data.username === user) {
     mes.setAttribute("class", "right");
-    console.log(user);
+    // console.log(user);
   } else {
     mes.setAttribute("class", "left");
   }
