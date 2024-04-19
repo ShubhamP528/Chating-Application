@@ -88,7 +88,6 @@
             width: 100%;
             /* max-width: 100%; */
             padding: 10px;
-            flex-direction: column;
             /* gap: 10px; */
         }
         .main textarea {
@@ -123,6 +122,16 @@
             font-size: 10px;
         }
     }
+.btnChat{
+    background-image: url(https://cdn-icons-png.flaticon.com/512/2161/2161491.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    height: 50px;
+    width: 5vw;
+    border: none;
+}
+
     
 </style>
 
@@ -134,12 +143,13 @@ background-image: linear-gradient(45deg, #85FFBD 0%, #FFFB7D 100%);">
         <div hidden id="user"><%=currUser.username%></div>
         <div id="list" style="display: flex; flex-direction: column;"></div>
 
-        <div class="main mb-3">
+        <div class="main">
             <input hidden type="text" id="username" value="<%=name.username %>">
             <input hidden type="text" id="to" value="<%=username %>" placeholder="send to(default every one)">
             <textarea class="form-control" name="msg" id="message" placeholder="Typing something to send......."
                 required></textarea>
-            <button class="btn btn-success btnChat">Send</button>
+            <div class="btn btnChat" ></div>
+
         </div>
     </div>
 
