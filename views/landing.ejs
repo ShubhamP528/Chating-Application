@@ -1,2 +1,292 @@
-<%- include("./partials/header") %> <%- include("./partials/navbar") %> <%-
-include("./partials/flash") %> <%- include("./partials/footer") %>
+<%- include("./partials/header") %> <%- include("./partials/navbar") %>
+<%-include("./partials/flash") %>
+
+<style>
+  .main {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    /* flex-wrap: wrap; */
+  }
+
+  .img {
+    display: flex;
+    justify-content: center;
+    /* width: 100%; */
+  }
+
+  .img > img {
+    width: 750px;
+    height: 640px;
+  }
+  .text {
+    display: flex;
+    flex-direction: column;
+    /* align-items: center; */
+    width: 100%;
+    margin-top: 6rem;
+    margin-left: 60px;
+    line-height: 0.5rem;
+  }
+
+  .text > h1 {
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 55px;
+    font-weight: 700;
+    color: #000000;
+    margin-bottom: 20px;
+  }
+
+  .btn-container {
+    display: flex;
+  }
+  .btnDiv {
+    display: flex;
+    align-items: end;
+  }
+
+  .btn-container > img {
+    height: 120px;
+    width: 180px;
+  }
+
+  .btn {
+    background-color: #000000;
+    color: #ffffff;
+    font-size: 20px;
+    font-weight: 700;
+    padding: 10px 20px;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+    margin-top: 20px;
+    margin-bottom: 0px;
+    margin-left: 20px;
+    margin-right: 20px;
+    transition: all 1s ease-in-out;
+    /* -webkit-transition: 1s; */
+  }
+
+  .btn:hover {
+    background-image: linear-gradient(
+      to bottom right,
+      rgb(111, 239, 91),
+      rgb(62, 208, 234)
+    );
+  }
+
+  .text > p {
+    color: gray;
+  }
+
+  .messageExample {
+    display: flex;
+    align-items: center;
+    height: 50px;
+    width: 350px;
+    border-radius: 5px;
+    background-color: rgba(255, 255, 255, 0.4);
+    -webkit-backdrop-filter: blur(5px);
+    backdrop-filter: blur(5px);
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    position: absolute;
+    top: 600px;
+    left: 700px;
+    padding-left: 4px;
+    padding-right: 4px;
+  }
+
+  .messageExample > p {
+    width: fit-content;
+    margin: 0;
+    font-size: small;
+    color: #171515;
+    font-weight: 500;
+  }
+
+  .left {
+    position: absolute;
+    top: 420px;
+    left: 0px;
+  }
+
+  .right {
+    position: absolute;
+    top: 500px;
+    left: 380px;
+  }
+
+  @media screen and (max-width: 1342px) {
+    .main {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 40px;
+    }
+  }
+
+  @media screen and (max-width: 792px) {
+    .img > img {
+      width: 640px;
+      /* height: 400; */
+    }
+    .left {
+      position: absolute;
+      top: 420px;
+      left: 0px;
+    }
+
+    .right {
+      position: absolute;
+      top: 500px;
+      left: 250px;
+    }
+    .messageExample {
+      font-size: smaller;
+    }
+
+    .messageExample > p {
+      font-size: smaller;
+    }
+  }
+
+  @media screen and (max-width: 660px) {
+    .img > img {
+      width: 450px;
+      /* height: 400px; */
+    }
+
+    .left {
+      position: absolute;
+      top: 420px;
+      left: 30px;
+    }
+
+    .right {
+      position: absolute;
+      top: 500px;
+      left: 100px;
+    }
+
+    .messageExample {
+      width: 300px;
+    }
+
+    .text h1 {
+      line-height: normal;
+      font-size: 40px;
+      font-weight: 700;
+      color: #000000;
+      margin-bottom: 20px;
+    }
+    .text > p {
+      font-size: smaller;
+      line-height: normal;
+      text-wrap: wrap;
+    }
+
+    text {
+      font-size: smaller;
+    }
+  }
+
+  @media screen and (max-width: 466px) {
+    .img > img {
+      width: 300px;
+      /* height: 400px; */
+    }
+
+    .left {
+      position: absolute;
+      top: 420px;
+      left: 0px;
+    }
+
+    .right {
+      position: absolute;
+      top: 500px;
+      right: 0px;
+    }
+
+    .messageExample {
+      width: 200px;
+    }
+
+    .text h1 {
+      line-height: normal;
+      font-size: 40px;
+      font-weight: 700;
+      color: #000000;
+      margin-bottom: 20px;
+    }
+    .text > p {
+      font-size: smaller;
+      line-height: normal;
+      text-wrap: wrap;
+    }
+    .btn-container > img {
+      height: 120px;
+      width: 100px;
+    }
+  }
+</style>
+
+<div class="main">
+  <div class="text">
+    <h1>Let's Connect with Your Friends or Family members in Real Time</h1>
+    <p>
+      Connect with friends seamlessly through our intuitive and secure chat.
+    </p>
+    <p>Chat effortlessly with friends, anytime, anywhere, on any device.</p>
+
+    <div class="btn-container">
+      <div class="btnDiv">
+        <form action="/newchat" method="post">
+          <button class="btn">Start Chating Now</button>
+        </form>
+      </div>
+      <img
+        src="https://res.cloudinary.com/dgsjppp4a/image/upload/v1715056429/xnx93kwlibuc4qlcufwj.jpg"
+        alt=""
+      />
+    </div>
+  </div>
+
+  <div style="position: relative">
+    <div class="messageExample left">
+      <img
+        height="40"
+        width="65"
+        src="https://res.cloudinary.com/dgsjppp4a/image/upload/v1715063684/xeviafw34cp6msw7qmvo.png"
+      />
+      <p>
+        Hey! Just wanted to check in and see how you're doing. Hope all is well!
+      </p>
+    </div>
+
+    <div class="messageExample right">
+      <img
+        height="40"
+        width="65"
+        src="https://res.cloudinary.com/dgsjppp4a/image/upload/v1715063684/xeviafw34cp6msw7qmvo.png"
+      />
+      <p>
+        Hey! Just wanted to check in and see how you're doing. Hope all is well!
+      </p>
+    </div>
+
+    <div class="img">
+      <img
+        src="https://res.cloudinary.com/dgsjppp4a/image/upload/c_crop,g_auto,h_1333,w_1250/n65zvixsipesbcy43fsf.jpg"
+        alt="Girl Image"
+      />
+    </div>
+  </div>
+</div>
+
+
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.min.js" integrity="sha384-Rx+T1VzGupg4BHQYs2gCW9It+akI2MM/mndMCy36UVfodzcJcF0GGLxZIzObiEfa" crossorigin="anonymous"></script>
+</body>

@@ -1,23 +1,78 @@
 <%- include("../partials/header") %> <%- include("../partials/navbar") %>
-
-<h1>All Users</h1>
-<div style="width: 60vw; margin: 60px auto">
-  <ol class="list-group list-group-numbered">
-    <%for(let u of obj){%> <%if(u.username!==currUser.username){%>
-    <li class="list-group-item fs-5">
-      <%=u.username%>
-      <form
-        class="navbar-text"
-        action="/chatwith/<%=u.username%>"
-        method="post"
-      >
-        <button style="border: none" class="float-end me-4" href="">
-          Chat
-        </button>
-      </form>
-    </li>
-    <% }%> <%}%>
-  </ol>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+  }
+  .container {
+    width: 90%;
+    margin: 60px auto;
+  }
+  .user-list {
+    width: 100%;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  .user-item {
+    background-color: #fff;
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .user-name {
+    font-size: 20px;
+    margin: 0;
+    color: #333;
+  }
+  .chat-button {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  .chat-button:hover {
+    background-color: #0056b3;
+  }
+  @media (max-width: 768px) {
+    .container {
+      width: 100%;
+      padding: 0 20px;
+    }
+    .user-item {
+      flex-direction: column;
+      align-items: flex-start;
+      text-align: left;
+    }
+    .user-name {
+      font-size: 18px;
+      margin-bottom: 10px;
+    }
+    .chat-button {
+      margin-top: 10px;
+    }
+  }
+</style>
+<div class="container">
+  <h1>All Users</h1>
+  <div>
+    <ol class="user-list">
+      <% for (let u of obj) { %> <% if (u.username !== currUser.username) { %>
+      <li class="user-item">
+        <span class="user-name"><%= u.username %></span>
+        <form action="/chatwith/<%= u.username %>" method="post">
+          <button class="chat-button" type="submit">Chat</button>
+        </form>
+      </li>
+      <% } %> <% } %>
+    </ol>
+  </div>
 </div>
-
 <%- include("../partials/footer") %>
